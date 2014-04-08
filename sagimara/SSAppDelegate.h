@@ -1,5 +1,5 @@
 //
-//  SGViewController.h
+//  SGAppDelegate.h
 //  sagimara
 //
 //  Created by  byung-woo Lee on 2014. 4. 7..
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGViewController : UIViewController
+@interface SSAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  SGAppDelegate.h
+//  SSInfoView.h
 //  sagimara
 //
 //  Created by  byung-woo Lee on 2014. 4. 7..
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface SSInfoView : UIView
 
 @end

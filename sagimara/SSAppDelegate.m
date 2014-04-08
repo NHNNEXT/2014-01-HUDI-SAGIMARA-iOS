@@ -6,9 +6,9 @@
 //  Copyright (c) 2014년 nhnnext. All rights reserved.
 //
 
-#import "SGAppDelegate.h"
+#import "SSAppDelegate.h"
 
-@implementation SGAppDelegate
+@implementation SSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
