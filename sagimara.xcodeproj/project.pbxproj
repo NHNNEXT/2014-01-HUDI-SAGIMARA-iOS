@@ -15,7 +15,7 @@
 		0255C9F418F29B340033818D /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255C9F318F29B340033818D /* SSAppDelegate.m */; };
 		0255C9F718F29B340033818D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0255C9F518F29B340033818D /* Main_iPhone.storyboard */; };
 		0255C9FA18F29B340033818D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0255C9F818F29B340033818D /* Main_iPad.storyboard */; };
-		0255C9FD18F29B340033818D /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255C9FC18F29B340033818D /* SSViewController.m */; };
+		0255C9FD18F29B340033818D /* SSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255C9FC18F29B340033818D /* SSRootViewController.m */; };
 		0255C9FF18F29B340033818D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0255C9FE18F29B340033818D /* Images.xcassets */; };
 		0255CA0618F29B340033818D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CA0518F29B340033818D /* XCTest.framework */; };
 		0255CA0718F29B340033818D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255C9E318F29B340033818D /* Foundation.framework */; };
@@ -56,8 +56,8 @@
 		0255C9F318F29B340033818D /* SSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAppDelegate.m; sourceTree = "<group>"; };
 		0255C9F618F29B340033818D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0255C9F918F29B340033818D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		0255C9FB18F29B340033818D /* SSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
-		0255C9FC18F29B340033818D /* SSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
+		0255C9FB18F29B340033818D /* SSRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSRootViewController.h; sourceTree = "<group>"; };
+		0255C9FC18F29B340033818D /* SSRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSRootViewController.m; sourceTree = "<group>"; };
 		0255C9FE18F29B340033818D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0255CA0418F29B340033818D /* sagimaraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sagimaraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0255CA0518F29B340033818D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -141,8 +141,8 @@
 				0255C9F318F29B340033818D /* SSAppDelegate.m */,
 				0255C9F518F29B340033818D /* Main_iPhone.storyboard */,
 				0255C9F818F29B340033818D /* Main_iPad.storyboard */,
-				0255C9FB18F29B340033818D /* SSViewController.h */,
-				0255C9FC18F29B340033818D /* SSViewController.m */,
+				0255C9FB18F29B340033818D /* SSRootViewController.h */,
+				0255C9FC18F29B340033818D /* SSRootViewController.m */,
 				0255CA2518F3F28E0033818D /* SSSearchViewController.h */,
 				0255CA2618F3F28E0033818D /* SSSearchViewController.m */,
 				0255CA2718F3F28E0033818D /* SSSearchViewController.xib */,
@@ -311,7 +311,7 @@
 			files = (
 				0255CA1D18F2F1670033818D /* SSInfoView.m in Sources */,
 				0255C9F418F29B340033818D /* SSAppDelegate.m in Sources */,
-				0255C9FD18F29B340033818D /* SSViewController.m in Sources */,
+				0255C9FD18F29B340033818D /* SSRootViewController.m in Sources */,
 				0255C9F018F29B340033818D /* main.m in Sources */,
 				0255CA2818F3F28E0033818D /* SSSearchViewController.m in Sources */,
 				0255CA2C18F406060033818D /* SSTouchBlock.m in Sources */,
@@ -529,6 +529,7 @@
 				0255CA1718F29B340033818D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0255CA1818F29B340033818D /* Build configuration list for PBXNativeTarget "sagimaraTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +538,7 @@
 				0255CA1A18F29B340033818D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

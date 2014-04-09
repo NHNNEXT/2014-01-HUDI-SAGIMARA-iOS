@@ -6,14 +6,14 @@
 //  Copyright (c) 2014년 nhnnext. All rights reserved.
 //
 
-#import "SSViewController.h"
+#import "SSRootViewController.h"
 #import "SSSearchViewController.h"
 
-@interface SSViewController ()
+@interface SSRootViewController ()
 
 @end
 
-@implementation SSViewController
+@implementation SSRootViewController
 {
     UITextField *searchField;
     UIButton *searchButton;
