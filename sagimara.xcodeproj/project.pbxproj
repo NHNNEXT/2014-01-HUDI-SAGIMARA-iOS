@@ -22,15 +22,22 @@
 		0255CA0818F29B340033818D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255C9E718F29B340033818D /* UIKit.framework */; };
 		0255CA1018F29B340033818D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA0E18F29B340033818D /* InfoPlist.strings */; };
 		0255CA1218F29B340033818D /* sagimaraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA1118F29B340033818D /* sagimaraTests.m */; };
-		0255CA1D18F2F1670033818D /* SSInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA1C18F2F1670033818D /* SSInfoView.m */; };
+		0255CA1D18F2F1670033818D /* SSSearchTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA1C18F2F1670033818D /* SSSearchTopView.m */; };
 		0255CA2818F3F28E0033818D /* SSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA2618F3F28E0033818D /* SSSearchViewController.m */; };
 		0255CA2918F3F28E0033818D /* SSSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2718F3F28E0033818D /* SSSearchViewController.xib */; };
-		0255CA2C18F406060033818D /* SSTouchBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA2B18F406060033818D /* SSTouchBlock.m */; };
+		0255CA2C18F406060033818D /* SSInfoBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA2B18F406060033818D /* SSInfoBlock.m */; };
 		0255CA3018F424C90033818D /* bg_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2D18F424C90033818D /* bg_location.png */; };
 		0255CA3118F424C90033818D /* bg_notify.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2E18F424C90033818D /* bg_notify.png */; };
 		0255CA3218F424C90033818D /* bg_today.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2F18F424C90033818D /* bg_today.png */; };
 		0255CA3518F426220033818D /* bg_watch.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA3418F426220033818D /* bg_watch.png */; };
 		0255CA3718F42B420033818D /* defaultPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA3618F42B420033818D /* defaultPhoto.png */; };
+		0266C66318F6736E00161662 /* btn_partition.png in Resources */ = {isa = PBXBuildFile; fileRef = 0266C65F18F6736E00161662 /* btn_partition.png */; };
+		0266C66418F6736E00161662 /* flag_danger.png in Resources */ = {isa = PBXBuildFile; fileRef = 0266C66018F6736E00161662 /* flag_danger.png */; };
+		0266C66518F6736E00161662 /* flag_trust.png in Resources */ = {isa = PBXBuildFile; fileRef = 0266C66118F6736E00161662 /* flag_trust.png */; };
+		0266C66618F6736E00161662 /* flag_warn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0266C66218F6736E00161662 /* flag_warn.png */; };
+		0266C66C18F68AB400161662 /* SSSearchBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0266C66B18F68AB400161662 /* SSSearchBottomView.m */; };
+		0266C66F18F68BC300161662 /* SSSearchMiddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0266C66E18F68BC300161662 /* SSSearchMiddleView.m */; };
+		02E576C118F5420D00F0BB2A /* SSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E576C018F5420D00F0BB2A /* SSDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,18 +71,28 @@
 		0255CA0D18F29B340033818D /* sagimaraTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sagimaraTests-Info.plist"; sourceTree = "<group>"; };
 		0255CA0F18F29B340033818D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0255CA1118F29B340033818D /* sagimaraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sagimaraTests.m; sourceTree = "<group>"; };
-		0255CA1B18F2F1670033818D /* SSInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInfoView.h; sourceTree = "<group>"; };
-		0255CA1C18F2F1670033818D /* SSInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInfoView.m; sourceTree = "<group>"; };
+		0255CA1B18F2F1670033818D /* SSSearchTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchTopView.h; sourceTree = "<group>"; };
+		0255CA1C18F2F1670033818D /* SSSearchTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchTopView.m; sourceTree = "<group>"; };
 		0255CA2518F3F28E0033818D /* SSSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchViewController.h; sourceTree = "<group>"; };
 		0255CA2618F3F28E0033818D /* SSSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchViewController.m; sourceTree = "<group>"; };
 		0255CA2718F3F28E0033818D /* SSSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSSearchViewController.xib; sourceTree = "<group>"; };
-		0255CA2A18F406060033818D /* SSTouchBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTouchBlock.h; sourceTree = "<group>"; };
-		0255CA2B18F406060033818D /* SSTouchBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTouchBlock.m; sourceTree = "<group>"; };
+		0255CA2A18F406060033818D /* SSInfoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInfoBlock.h; sourceTree = "<group>"; };
+		0255CA2B18F406060033818D /* SSInfoBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInfoBlock.m; sourceTree = "<group>"; };
 		0255CA2D18F424C90033818D /* bg_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_location.png; path = img/bg_location.png; sourceTree = "<group>"; };
 		0255CA2E18F424C90033818D /* bg_notify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_notify.png; path = img/bg_notify.png; sourceTree = "<group>"; };
 		0255CA2F18F424C90033818D /* bg_today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_today.png; path = img/bg_today.png; sourceTree = "<group>"; };
 		0255CA3418F426220033818D /* bg_watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_watch.png; path = img/bg_watch.png; sourceTree = "<group>"; };
 		0255CA3618F42B420033818D /* defaultPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultPhoto.png; path = img/defaultPhoto.png; sourceTree = "<group>"; };
+		0266C65F18F6736E00161662 /* btn_partition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_partition.png; path = img/btn_partition.png; sourceTree = "<group>"; };
+		0266C66018F6736E00161662 /* flag_danger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag_danger.png; path = img/flag_danger.png; sourceTree = "<group>"; };
+		0266C66118F6736E00161662 /* flag_trust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag_trust.png; path = img/flag_trust.png; sourceTree = "<group>"; };
+		0266C66218F6736E00161662 /* flag_warn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag_warn.png; path = img/flag_warn.png; sourceTree = "<group>"; };
+		0266C66A18F68AB400161662 /* SSSearchBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchBottomView.h; sourceTree = "<group>"; };
+		0266C66B18F68AB400161662 /* SSSearchBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchBottomView.m; sourceTree = "<group>"; };
+		0266C66D18F68BC300161662 /* SSSearchMiddleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchMiddleView.h; sourceTree = "<group>"; };
+		0266C66E18F68BC300161662 /* SSSearchMiddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchMiddleView.m; sourceTree = "<group>"; };
+		02E576BF18F5420D00F0BB2A /* SSDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDataModel.h; sourceTree = "<group>"; };
+		02E576C018F5420D00F0BB2A /* SSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +163,7 @@
 				0255CA2518F3F28E0033818D /* SSSearchViewController.h */,
 				0255CA2618F3F28E0033818D /* SSSearchViewController.m */,
 				0255CA2718F3F28E0033818D /* SSSearchViewController.xib */,
+				02E576C218F5421800F0BB2A /* Model */,
 				0255C9FE18F29B340033818D /* Images.xcassets */,
 				0255C9EA18F29B340033818D /* Supporting Files */,
 			);
@@ -184,10 +202,14 @@
 		0255CA1E18F2F1780033818D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0255CA1B18F2F1670033818D /* SSInfoView.h */,
-				0255CA1C18F2F1670033818D /* SSInfoView.m */,
-				0255CA2A18F406060033818D /* SSTouchBlock.h */,
-				0255CA2B18F406060033818D /* SSTouchBlock.m */,
+				0255CA1B18F2F1670033818D /* SSSearchTopView.h */,
+				0255CA1C18F2F1670033818D /* SSSearchTopView.m */,
+				0266C66D18F68BC300161662 /* SSSearchMiddleView.h */,
+				0266C66E18F68BC300161662 /* SSSearchMiddleView.m */,
+				0266C66A18F68AB400161662 /* SSSearchBottomView.h */,
+				0266C66B18F68AB400161662 /* SSSearchBottomView.m */,
+				0255CA2A18F406060033818D /* SSInfoBlock.h */,
+				0255CA2B18F406060033818D /* SSInfoBlock.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -195,6 +217,10 @@
 		0255CA3318F424CD0033818D /* img */ = {
 			isa = PBXGroup;
 			children = (
+				0266C65F18F6736E00161662 /* btn_partition.png */,
+				0266C66018F6736E00161662 /* flag_danger.png */,
+				0266C66118F6736E00161662 /* flag_trust.png */,
+				0266C66218F6736E00161662 /* flag_warn.png */,
 				0255CA2D18F424C90033818D /* bg_location.png */,
 				0255CA3618F42B420033818D /* defaultPhoto.png */,
 				0255CA2E18F424C90033818D /* bg_notify.png */,
@@ -202,6 +228,15 @@
 				0255CA3418F426220033818D /* bg_watch.png */,
 			);
 			name = img;
+			sourceTree = "<group>";
+		};
+		02E576C218F5421800F0BB2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02E576BF18F5420D00F0BB2A /* SSDataModel.h */,
+				02E576C018F5420D00F0BB2A /* SSDataModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,12 +319,16 @@
 				0255CA3718F42B420033818D /* defaultPhoto.png in Resources */,
 				0255CA3218F424C90033818D /* bg_today.png in Resources */,
 				0255C9FA18F29B340033818D /* Main_iPad.storyboard in Resources */,
+				0266C66618F6736E00161662 /* flag_warn.png in Resources */,
+				0266C66518F6736E00161662 /* flag_trust.png in Resources */,
 				0255CA3018F424C90033818D /* bg_location.png in Resources */,
+				0266C66418F6736E00161662 /* flag_danger.png in Resources */,
 				0255CA3118F424C90033818D /* bg_notify.png in Resources */,
 				0255C9FF18F29B340033818D /* Images.xcassets in Resources */,
 				0255CA3518F426220033818D /* bg_watch.png in Resources */,
 				0255C9F718F29B340033818D /* Main_iPhone.storyboard in Resources */,
 				0255CA2918F3F28E0033818D /* SSSearchViewController.xib in Resources */,
+				0266C66318F6736E00161662 /* btn_partition.png in Resources */,
 				0255C9EE18F29B340033818D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,12 +348,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0255CA1D18F2F1670033818D /* SSInfoView.m in Sources */,
+				0255CA1D18F2F1670033818D /* SSSearchTopView.m in Sources */,
+				02E576C118F5420D00F0BB2A /* SSDataModel.m in Sources */,
 				0255C9F418F29B340033818D /* SSAppDelegate.m in Sources */,
+				0266C66C18F68AB400161662 /* SSSearchBottomView.m in Sources */,
 				0255C9FD18F29B340033818D /* SSRootViewController.m in Sources */,
 				0255C9F018F29B340033818D /* main.m in Sources */,
 				0255CA2818F3F28E0033818D /* SSSearchViewController.m in Sources */,
-				0255CA2C18F406060033818D /* SSTouchBlock.m in Sources */,
+				0255CA2C18F406060033818D /* SSInfoBlock.m in Sources */,
+				0266C66F18F68BC300161662 /* SSSearchMiddleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

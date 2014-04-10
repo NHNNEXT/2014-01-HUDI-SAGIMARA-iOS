@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SSSearchViewController : UIViewController
-
+-(void)stopIndicatiorView;
+-(void)stopIndicatiorView :(NSDictionary*)data;
 @end

@@ -8,6 +8,7 @@
 
 #import "SSRootViewController.h"
 #import "SSSearchViewController.h"
+#import "SSDataModel.h"
 
 @interface SSRootViewController ()
 
@@ -65,10 +66,14 @@
 }
 -(void)searchClick:(UITapGestureRecognizer*)rec
 {
+    
     //폰넘버 정상 데이터인지 확인 부분 (정상일시 View 전환 :SSSearchViewController)
     if([self isPhonNumber:searchField.text])
     {
+        SSDataModel* model = [[SSDataModel alloc]init];
         SSSearchViewController *searchViewController = [[SSSearchViewController alloc]initWithNibName:@"SSSearchViewController" bundle:nil];
+        [model setSearchViewController:searchViewController];
+        [model sendData2:searchField.text];
         [self.navigationController pushViewController:searchViewController animated:YES];
     }
 }
@@ -76,6 +81,7 @@
 //폰넘버 체크 (향후 구현)
 -(BOOL)isPhonNumber:(NSString*)text
 {
+    
     
     return YES;
 }

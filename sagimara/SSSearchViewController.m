@@ -7,8 +7,11 @@
 //
 
 #import "SSSearchViewController.h"
-#import "SSInfoView.h"
-#import "SSTouchBlock.h"
+#import "SSSearchTopView.h"
+#import "SSSearchMiddleView.h"
+#import "SSSearchBottomView.h"
+#import "SSDataModel.h"
+
 @interface SSSearchViewController ()
 
 @end
@@ -16,61 +19,69 @@
 @implementation SSSearchViewController
 {
     UIScrollView *scrollView;
-    SSInfoView* infoView;
-    SSTouchBlock *todayInfo,*locationInfo,*watchInfo,*notifyInfo;
+    SSSearchTopView *topView;
+    SSSearchMiddleView *middleView;
+    SSSearchBottomView *bottomView;
+    UISearchBar *search;
+    UIActivityIndicatorView *indicatiorView;
+    SSDataModel *dataModel;
 }
+enum infoBlock{
+    TODAY = 0,
+    LOCATION = 1,
+    WATCH = 2,
+    NOTIFY= 3
+};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     //뷰사이즈 받아오기
     CGSize viewSize = self.view.bounds.size;
-    CGFloat halfWidth = viewSize.width/2;
+
     
     //배경색 설정
     [self.view setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)77/256 blue:(CGFloat)87/256 alpha:1]];
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc]initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(searchBarButtonClick:)];
+    self.navigationItem.rightBarButtonItem = searchButton ;
+    
+    //UIView *indicatiorView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
+    indicatiorView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
+    [indicatiorView setBackgroundColor:[UIColor grayColor]];
+    [indicatiorView setAlpha:0.6f];
+    [indicatiorView startAnimating];
+    [dataModel setSearchViewController:self];
     
     //스크롤뷰 생성
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
-    scrollView.contentSize = CGSizeMake(viewSize.width, viewSize.height);
-    //infoView생성
-    infoView = [[SSInfoView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, 160)];
     
-    //중단 버튼 2개 생성 및 설정(reconfirmButton, tradeHistoryButton)
-    UIButton *reconfirmButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 160, halfWidth, 40)];
-    UIButton *tradeHistoryButton = [[UIButton alloc]initWithFrame:CGRectMake(halfWidth, 160, halfWidth, 40)];
-    [reconfirmButton setBackgroundColor:[UIColor colorWithRed:(CGFloat)226/256 green:(CGFloat)122/256 blue:(CGFloat)63/256 alpha:1]];
-    [tradeHistoryButton setBackgroundColor:[UIColor colorWithRed:(CGFloat)226/256 green:(CGFloat)122/256 blue:(CGFloat)63/256 alpha:1]];
-    [reconfirmButton setTitle:@"재인증 요청" forState:UIControlStateNormal];
-    [tradeHistoryButton setTitle:@"거래내역 보기" forState:UIControlStateNormal];
+    //View생성
+    topView = [[SSSearchTopView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, 160)];
+    middleView = [[SSSearchMiddleView alloc]initWithFrame:CGRectMake(0, topView.frame.size.height, viewSize.width, 240)];
+    bottomView = [[SSSearchBottomView alloc]initWithFrame:CGRectMake(0, topView.frame.size.height+middleView.frame.size.height, viewSize.width, 300)];
     
     //infoView 배경색 설정 및 데이터 변경 (향후 추가 구현!)
     [self insertDataIntoInfoView];
     
     //뷰에 스크롤뷰 넣고, 스크롤뷰에 뷰들 넣기
     [self.view addSubview:scrollView];
-    [scrollView addSubview:infoView];
-    [scrollView addSubview:reconfirmButton];
-    [scrollView addSubview:tradeHistoryButton];
+    [scrollView addSubview:topView];
+    [scrollView addSubview:middleView];
+    [scrollView addSubview:bottomView];
+    scrollView.contentSize = CGSizeMake(viewSize.width, topView.frame.size.height + middleView.frame.size.height + bottomView.frame.size.height);
 
-    //하단 4개 버튼 만들기
-    todayInfo    = [self makeTouchBlock:todayInfo x:0 y:200 width:halfWidth height:100];
-    locationInfo = [self makeTouchBlock:locationInfo x:halfWidth y:200 width:halfWidth height:100];
-    watchInfo    = [self makeTouchBlock:watchInfo x:0 y:300 width:halfWidth height:100];
-    notifyInfo   = [self makeTouchBlock:notifyInfo x:halfWidth y:300 width:halfWidth height:100];
+
     
-    //하단 4개 버튼 초기값
-    [todayInfo setDefaultValue:@"Today" image:[UIImage imageNamed:@"bg_today.png"] content:@"99"];
-    [locationInfo setDefaultValue:@"Location" image:[UIImage imageNamed:@"bg_location.png"] content:@"경기도 성남시"];
-    [watchInfo setDefaultValue:@"Watch" image:[UIImage imageNamed:@"bg_watch.png"] content:@"3"];
-    [notifyInfo setDefaultValue:@"Notify" image:[UIImage imageNamed:@"bg_notify.png"] content:@"0"];
-    
-    //값 변경 TEST
-    [todayInfo setContentText:@"12345"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTap:)];
+    search = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 64, viewSize.width, 35)];
+    search.hidden= YES;
+    [self.view addSubview: search];
+    [self.view addGestureRecognizer:tap];
+    [self.view addSubview:indicatiorView];
 }
 
 - (void)insertDataIntoInfoView
 {
-    [infoView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
+    [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
     
 }
 - (void)didReceiveMemoryWarning
@@ -78,11 +89,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (SSTouchBlock*)makeTouchBlock:(SSTouchBlock*)block x:(CGFloat)x y:(CGFloat)y
-                 width:(CGFloat)width height:(CGFloat) height
+
+-(IBAction)searchBarButtonClick:(id)sender
 {
-    block = [[SSTouchBlock alloc] initWithFrame:CGRectMake(x, y, width, height)];
-    [scrollView addSubview:block];
-    return block;
+    if(search.hidden){
+        CGRect newFrame = scrollView.frame;
+        newFrame.origin.y += 35;
+        newFrame.size.height-=35;
+        scrollView.frame = newFrame;
+    }else{
+        CGRect newFrame = scrollView.frame;
+        newFrame.origin.y -= 35;
+        newFrame.size.height += 35;
+        scrollView.frame = newFrame;
+    }
+    
+    
+    search.hidden = !search.hidden;
+}
+-(void)didTap:(UITapGestureRecognizer*)rec
+{
+    [search resignFirstResponder];
+}
+-(void)stopIndicatiorView :(NSDictionary*)data
+{
+    
+   NSString *name = [data objectForKey:@"profile_phone"];
+    [topView setName:name];
+    [indicatiorView stopAnimating];
+    indicatiorView = nil;
+    
+    //값 변경 TEST
+    [middleView insertIntoInfoBlockName:TODAY
+                                   text:[data objectForKey:@"profile_inquiry"]
+                                 signal:2];
+    [middleView insertIntoInfoBlockName:LOCATION
+                                   text:[data objectForKey:@"profile_location"]
+                                 signal:2];
+    [middleView insertIntoInfoBlockName:WATCH
+                                   text:[data objectForKey:@"profile_verification"]
+                                 signal:1];
+    [middleView insertIntoInfoBlockName:NOTIFY
+                                   text:[data objectForKey:@"profile_video"]
+                                 signal:0];
 }
 @end

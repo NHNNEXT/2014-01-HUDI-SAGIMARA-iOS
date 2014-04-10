@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SSTouchBlock : UIView
+@interface SSInfoBlock : UIView
 
 -(void)setContentText:(NSString*)text;
+-(void)setSignal:(int)flag;
 -(void)setDefaultValue:(NSString*)title image:(UIImage*)img content:(NSString*)content;
 -(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 @end

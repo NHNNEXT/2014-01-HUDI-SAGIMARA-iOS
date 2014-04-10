@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SSInfoView : UIView
-
+@interface SSSearchTopView : UIView
+- (void) setName :(NSString*)name;
 @end
