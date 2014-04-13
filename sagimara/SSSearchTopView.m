@@ -26,7 +26,7 @@
         nameLabel  = [self makeLabel:nameLabel x:20 y:120 width:100 height:30 text:@"정보없음" size:14.f];
         [nameLabel setTextAlignment:NSTextAlignmentCenter];
         
-        gradeLabel = [self makeLabel:gradeLabel x:130 y:20 width:180 height:30 text:@"Danger" size:23.f];
+        gradeLabel = [self makeLabel:gradeLabel x:130 y:20 width:180 height:30 text:@"Warning" size:23.f];
         [gradeLabel setTextAlignment:NSTextAlignmentCenter];
 
         dateLabel = [self makeLabel:dateLabel x:130 y:50 width:180 height:20 text:@"인증 정보가 없습니다." size:10.f];

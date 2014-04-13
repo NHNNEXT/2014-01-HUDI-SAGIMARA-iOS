@@ -60,7 +60,7 @@ enum infoBlock{
     bottomView = [[SSSearchBottomView alloc]initWithFrame:CGRectMake(0, topView.frame.size.height+middleView.frame.size.height, viewSize.width, 300)];
     
     //infoView 배경색 설정 및 데이터 변경 (향후 추가 구현!)
-    [self insertDataIntoInfoView];
+    [self insertDataIntoInfoView:2];
     
     //뷰에 스크롤뷰 넣고, 스크롤뷰에 뷰들 넣기
     [self.view addSubview:scrollView];
@@ -79,9 +79,23 @@ enum infoBlock{
     [self.view addSubview:indicatiorView];
 }
 
-- (void)insertDataIntoInfoView
+- (void)insertDataIntoInfoView:(int)status
 {
-    [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
+    switch (status) {
+        case 0:
+            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)223/256 green:(CGFloat)90/256 blue:(CGFloat)73/256 alpha:1]];
+            break;
+        case 1:
+            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)255/256 green:(CGFloat)204/256 blue:(CGFloat)51/256 alpha:1]];
+            break;
+        case 2:
+            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
+            break;
+            
+        default:
+            break;
+    }
+    
     
 }
 - (void)didReceiveMemoryWarning
@@ -119,6 +133,7 @@ enum infoBlock{
     [indicatiorView stopAnimating];
     indicatiorView = nil;
     
+    if(data!=nil){
     //값 변경 TEST
     [middleView insertIntoInfoBlockName:TODAY
                                    text:[data objectForKey:@"profile_inquiry"]
@@ -132,5 +147,8 @@ enum infoBlock{
     [middleView insertIntoInfoBlockName:NOTIFY
                                    text:[data objectForKey:@"profile_video"]
                                  signal:0];
+    [self insertDataIntoInfoView:(int)[data objectForKey:@"profile_status"]];
+        
+    }
 }
 @end

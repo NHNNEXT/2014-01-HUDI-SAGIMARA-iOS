@@ -50,13 +50,13 @@
 -(void)setSignal:(int)flag
 {
     switch (flag) {
-        case 0:
+        case 2:
             [signal setImage:[UIImage imageNamed:@"flag_danger.png"]];
             break;
         case 1:
             [signal setImage:[UIImage imageNamed:@"flag_warn.png"]];
             break;
-        case 2:
+        case 0:
             [signal setImage:[UIImage imageNamed:@"flag_trust.png"]];
             break;
         default:
