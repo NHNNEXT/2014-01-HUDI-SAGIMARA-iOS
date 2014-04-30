@@ -14,6 +14,17 @@
     NSDictionary *_responseData;
     SSSearchViewController * _searchViewController;
 }
+    static SSDataModel* dataModel;
+
++(SSDataModel*)getDataModel{
+
+    if (dataModel ==nil) {
+        dataModel = [[SSDataModel alloc]init];
+    }
+    return dataModel;
+}
+
+
 - (void)setSearchViewController:(SSSearchViewController*)searchViewController
 {
     _searchViewController = searchViewController;
@@ -31,7 +42,10 @@
     NSLog(@"%@",_responseData);
     NSString *name = [_responseData objectForKey:@"profile_phone"];
     NSLog(@"model = %@",name);
-    [_searchViewController stopIndicatiorView:_responseData];
+
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:_responseData forKey:@"jsonData"];
+    [notificationCenter postNotificationName:@"serverData" object:self userInfo:dic];
     
 }
 - (NSDictionary*) getResponseData
@@ -40,13 +54,7 @@
 }
 -  (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    /*
-    NSDictionary* resultArray = [NSJSONSerialization
-                                 JSONObjectWithData:_responseData
-                                 options:NSJSONReadingMutableContainers error:nil];
-    _itemArray = [resultArray objectForKey:@"boards"];
-    [_tableController.tableView reloadData];
-     */
+
 }
 
 
@@ -66,7 +74,23 @@
     [request setHTTPBody:postData];
     [NSURLConnection connectionWithRequest:request delegate:self ];
 }
+-(void)sendDataToLocalhost :(NSString*)number
+{
+    _responseData = nil;
 
+    NSString *smsURL = @"http://localhost:8080/test";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSString *post = [NSString stringWithFormat:@"id=%@",number];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+    [request setURL:[NSURL URLWithString:smsURL]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"Mozilla/4.0 (compatible;)" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    [NSURLConnection connectionWithRequest:request delegate:self ];
+}
 
 -(void)sendData :(NSString*)number
 {

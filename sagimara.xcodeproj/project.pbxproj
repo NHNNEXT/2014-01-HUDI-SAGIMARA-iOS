@@ -24,7 +24,6 @@
 		0255CA1218F29B340033818D /* sagimaraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA1118F29B340033818D /* sagimaraTests.m */; };
 		0255CA1D18F2F1670033818D /* SSSearchTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA1C18F2F1670033818D /* SSSearchTopView.m */; };
 		0255CA2818F3F28E0033818D /* SSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA2618F3F28E0033818D /* SSSearchViewController.m */; };
-		0255CA2918F3F28E0033818D /* SSSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2718F3F28E0033818D /* SSSearchViewController.xib */; };
 		0255CA2C18F406060033818D /* SSInfoBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255CA2B18F406060033818D /* SSInfoBlock.m */; };
 		0255CA3018F424C90033818D /* bg_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2D18F424C90033818D /* bg_location.png */; };
 		0255CA3118F424C90033818D /* bg_notify.png in Resources */ = {isa = PBXBuildFile; fileRef = 0255CA2E18F424C90033818D /* bg_notify.png */; };
@@ -75,7 +74,6 @@
 		0255CA1C18F2F1670033818D /* SSSearchTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchTopView.m; sourceTree = "<group>"; };
 		0255CA2518F3F28E0033818D /* SSSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchViewController.h; sourceTree = "<group>"; };
 		0255CA2618F3F28E0033818D /* SSSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchViewController.m; sourceTree = "<group>"; };
-		0255CA2718F3F28E0033818D /* SSSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSSearchViewController.xib; sourceTree = "<group>"; };
 		0255CA2A18F406060033818D /* SSInfoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInfoBlock.h; sourceTree = "<group>"; };
 		0255CA2B18F406060033818D /* SSInfoBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInfoBlock.m; sourceTree = "<group>"; };
 		0255CA2D18F424C90033818D /* bg_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_location.png; path = img/bg_location.png; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				0255C9FC18F29B340033818D /* SSRootViewController.m */,
 				0255CA2518F3F28E0033818D /* SSSearchViewController.h */,
 				0255CA2618F3F28E0033818D /* SSSearchViewController.m */,
-				0255CA2718F3F28E0033818D /* SSSearchViewController.xib */,
 				02E576C218F5421800F0BB2A /* Model */,
 				0255C9FE18F29B340033818D /* Images.xcassets */,
 				0255C9EA18F29B340033818D /* Supporting Files */,
@@ -327,7 +324,6 @@
 				0255C9FF18F29B340033818D /* Images.xcassets in Resources */,
 				0255CA3518F426220033818D /* bg_watch.png in Resources */,
 				0255C9F718F29B340033818D /* Main_iPhone.storyboard in Resources */,
-				0255CA2918F3F28E0033818D /* SSSearchViewController.xib in Resources */,
 				0266C66318F6736E00161662 /* btn_partition.png in Resources */,
 				0255C9EE18F29B340033818D /* InfoPlist.strings in Resources */,
 			);

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SSSearchTopView : UIView
-- (void) setName :(NSString*)name;
+- (void) setNameLabelValue :(NSString*)name;
+- (void)setGradeLabelValue :(NSString*)name;
 @end

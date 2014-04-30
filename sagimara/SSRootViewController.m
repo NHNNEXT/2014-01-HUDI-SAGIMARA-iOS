@@ -70,10 +70,11 @@
     //폰넘버 정상 데이터인지 확인 부분 (정상일시 View 전환 :SSSearchViewController)
     if([self isPhonNumber:searchField.text])
     {
-        SSDataModel* model = [[SSDataModel alloc]init];
+
         SSSearchViewController *searchViewController = [[SSSearchViewController alloc]initWithNibName:@"SSSearchViewController" bundle:nil];
-        [model setSearchViewController:searchViewController];
-        [model sendData2:searchField.text];
+
+        [searchViewController waitingForData];
+        [[SSDataModel getDataModel]sendDataToLocalhost:searchField.text];
         [self.navigationController pushViewController:searchViewController animated:YES];
     }
 }

@@ -24,7 +24,7 @@
     SSSearchBottomView *bottomView;
     UISearchBar *search;
     UIActivityIndicatorView *indicatiorView;
-    SSDataModel *dataModel;
+
 }
 enum infoBlock{
     TODAY = 0,
@@ -49,7 +49,6 @@ enum infoBlock{
     [indicatiorView setBackgroundColor:[UIColor grayColor]];
     [indicatiorView setAlpha:0.6f];
     [indicatiorView startAnimating];
-    [dataModel setSearchViewController:self];
     
     //스크롤뷰 생성
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
@@ -84,12 +83,15 @@ enum infoBlock{
     switch (status) {
         case 0:
             [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)223/256 green:(CGFloat)90/256 blue:(CGFloat)73/256 alpha:1]];
+            [topView setGradeLabelValue:@"Danger"];
             break;
         case 1:
             [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)255/256 green:(CGFloat)204/256 blue:(CGFloat)51/256 alpha:1]];
+            [topView setGradeLabelValue:@"Warning"];
             break;
         case 2:
             [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
+            [topView setGradeLabelValue:@"Trust"];
             break;
             
         default:
@@ -125,30 +127,38 @@ enum infoBlock{
 {
     [search resignFirstResponder];
 }
--(void)stopIndicatiorView :(NSDictionary*)data
+-(void)stopIndicatiorViewAndUpdateData :(NSNotification *)notification
 {
-    
-   NSString *name = [data objectForKey:@"profile_phone"];
-    [topView setName:name];
+    NSDictionary* data = [[notification userInfo] objectForKey:@"jsonData"];
+    NSString *name = [data objectForKey:@"profilePhone"];
+    [topView setNameLabelValue:name];
     [indicatiorView stopAnimating];
     indicatiorView = nil;
     
     if(data!=nil){
     //값 변경 TEST
-    [middleView insertIntoInfoBlockName:TODAY
-                                   text:[data objectForKey:@"profile_inquiry"]
+        NSArray* inquiry = [data objectForKey:@"profileInquiry"];
+        NSString *status = [data objectForKey:@"profileStatus"];
+        [middleView insertIntoInfoBlockName:TODAY
+                                   text:[inquiry objectAtIndex:6]
                                  signal:2];
-    [middleView insertIntoInfoBlockName:LOCATION
-                                   text:[data objectForKey:@"profile_location"]
+        [middleView insertIntoInfoBlockName:LOCATION
+                                   text:[data objectForKey:@"profileLocation"]
                                  signal:2];
-    [middleView insertIntoInfoBlockName:WATCH
-                                   text:[data objectForKey:@"profile_verification"]
+        [middleView insertIntoInfoBlockName:WATCH
+                                   text:[data objectForKey:@"profileWatch"]
                                  signal:1];
-    [middleView insertIntoInfoBlockName:NOTIFY
-                                   text:[data objectForKey:@"profile_video"]
+        [middleView insertIntoInfoBlockName:NOTIFY
+                                   text:[data objectForKey:@"profileNotify"]
                                  signal:0];
-    [self insertDataIntoInfoView:(int)[data objectForKey:@"profile_status"]];
+       
+        [self insertDataIntoInfoView:[status intValue]];
         
     }
+}
+-(void)waitingForData{
+    //옵저버 붙이기
+    NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
+    [notification addObserver:self selector:@selector(stopIndicatiorViewAndUpdateData:) name:@"serverData" object:nil];
 }
 @end

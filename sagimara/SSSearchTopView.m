@@ -47,7 +47,7 @@
     }
     return self;
 }
-- (void) setName :(NSString*)name
+- (void) setNameLabelValue :(NSString*)name
 {
     nameLabel.text = name;
 }
@@ -62,9 +62,9 @@
     return label;
 }
 
--(void)setDefaultValue:(NSString*)name
+-(void)setGradeLabelValue:(NSString*)status
 {
-    
+    [gradeLabel setText:status];
 }
 
 @end

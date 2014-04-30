@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SSSearchViewController.h"
 @interface SSDataModel : NSObject <NSURLConnectionDataDelegate>
-
++(SSDataModel*)getDataModel;
 -(void)sendData :(NSString*)number;
 -(void)sendData2 :(NSString*)number;
+-(void)sendDataToLocalhost :(NSString*)number;
 -(void)requestWebData;
 -(NSDictionary*) getResponseData;
 - (void)setSearchViewController:(SSSearchViewController*)searchViewController;
