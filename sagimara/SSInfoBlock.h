@@ -14,4 +14,6 @@
 -(void)setSignal:(int)flag;
 -(void)setDefaultValue:(NSString*)title image:(UIImage*)img content:(NSString*)content;
 -(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+
+@property UIButton *touchButton;
 @end

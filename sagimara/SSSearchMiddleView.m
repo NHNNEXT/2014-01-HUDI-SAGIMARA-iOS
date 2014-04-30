@@ -8,11 +8,19 @@
 
 #import "SSSearchMiddleView.h"
 #import "SSInfoBlock.h"
+
 @implementation SSSearchMiddleView
 {
     NSMutableArray *infoBlocks;
 }
 
+enum
+{
+    TODAY       = 0,
+    LOCATION    = 1,
+    WATCH       = 2,
+    NOTIFY      = 3
+};
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -71,5 +79,10 @@
     [[infoBlocks objectAtIndex:block] setSignal:sig];
 }
 
+-(UIButton*)getLocationButton
+{
+    SSInfoBlock* tempInfo = [infoBlocks objectAtIndex:1];
+    return tempInfo.touchButton;
+}
 
 @end

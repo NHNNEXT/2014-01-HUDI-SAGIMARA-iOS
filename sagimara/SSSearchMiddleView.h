@@ -10,7 +10,7 @@
 
 @interface SSSearchMiddleView : UIView
 -(void)insertIntoInfoBlockName:(int)block text:(NSString*)value signal:(int)sig;
-
+-(UIButton*)getLocationButton;
 @property UIButton* reconfirmButton;
 @property UIButton* tradeHistoryButton;
 @end

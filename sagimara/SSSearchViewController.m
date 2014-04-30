@@ -41,7 +41,6 @@ enum infoBlock{
 
     
     //배경색 설정
-    [self.view setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)77/256 blue:(CGFloat)87/256 alpha:1]];
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc]initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(searchBarButtonClick:)];
     self.navigationItem.rightBarButtonItem = searchButton ;
     
@@ -71,10 +70,14 @@ enum infoBlock{
 
     [middleView.reconfirmButton addTarget:self action:@selector(reconfirmButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [middleView.tradeHistoryButton addTarget:self action:@selector(tradeHistoryButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [[middleView getLocationButton] addTarget:self action:@selector(locationButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTap:)];
     search = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 64, viewSize.width, 35)];
     search.hidden= YES;
+    search.placeholder = @"휴대폰 번호를 입력하세요";
+    search.delegate = self;
     [self.view addSubview: search];
     [self.view addGestureRecognizer:tap];
     [self.view addSubview:indicatiorView];
@@ -133,9 +136,9 @@ enum infoBlock{
 {
     NSDictionary* data = [[notification userInfo] objectForKey:@"jsonData"];
     NSString *name = [data objectForKey:@"profilePhone"];
-    [topView setNameLabelValue:name];
+    topView.nameLabel.text = name;
     [indicatiorView stopAnimating];
-    indicatiorView = nil;
+    [indicatiorView setHidden:YES];
     
     if(data!=nil){
     //값 변경 TEST
@@ -167,21 +170,48 @@ enum infoBlock{
 
 -(IBAction)reconfirmButtonClick:(id)sender
 {
-    [self performSegueWithIdentifier:@"Reconfirm" sender:self];
+    NSString* msg =  [NSString stringWithFormat:@"%@%@", topView.nameLabel.text, @"님에게 \n 재인증 요청 문자가 전달됩니다."];
+    UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"재인증 요청"
+                                                       message:msg
+                                                      delegate:self
+                                             cancelButtonTitle:@"확인"
+                                             otherButtonTitles:@"취소",nil];
+    [theAlert show];
 }
 
 -(IBAction)tradeHistoryButtonClick:(id)sender
 {
-    [self performSegueWithIdentifier:@"History" sender:self];
+    [self performSegueWithIdentifier:@"tradeHistory" sender:self];
 
     
 }
+
+-(IBAction)locationButtonClick:(id)sender
+{
+    [self performSegueWithIdentifier:@"location" sender:self];
+    
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 //    if ([segue.identifier isEqualToString:@"HistoryViewControllerSegue"]) {
 //            NSLog(@"거래내역 보기");
 //        SSTradeHistoryViewController *th = [segue destinationViewController];
 //    }
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [searchBar setHidden:YES];
+    CGRect newFrame = scrollView.frame;
+    newFrame.origin.y -= 35;
+    newFrame.size.height += 35;
+    scrollView.frame = newFrame;
+    [[SSDataModel getDataModel]sendDataToLocalhost:searchBar.text];
+    [indicatiorView startAnimating];
+    [indicatiorView setHidden:NO];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SSSearchViewController : UIViewController
+@interface SSSearchViewController : UIViewController <UIAlertViewDelegate,UISearchBarDelegate>
 
 -(void)waitingForData;
 

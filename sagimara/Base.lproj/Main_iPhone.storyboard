@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller - Root View-->
+        <!--Root View Controller - 검색-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SSRootViewController" sceneMemberID="viewController">
@@ -15,9 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.30196078431372547" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Root View" id="6QQ-2U-sn4"/>
+                    <navigationItem key="navigationItem" title="검색" id="6QQ-2U-sn4"/>
                     <connections>
                         <segue destination="Ept-1O-F2N" kind="push" identifier="Search" id="JwT-oK-H2H"/>
                     </connections>
@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-17" y="102"/>
         </scene>
-        <!--Search View Controller - Search View-->
+        <!--Search View Controller - 검색결과-->
         <scene sceneID="s1K-qG-egS">
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" id="Ept-1O-F2N" customClass="SSSearchViewController" sceneMemberID="viewController">
@@ -37,19 +37,19 @@
                     <view key="view" contentMode="scaleToFill" id="geH-sA-e1c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.87669403700000004" green="0.87669403700000004" blue="0.87669403700000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search View" id="79u-3k-U8l"/>
+                    <navigationItem key="navigationItem" title="검색결과" id="79u-3k-U8l"/>
                     <connections>
-                        <segue destination="xbB-pF-yen" kind="push" identifier="History" id="IeS-cQ-kNK"/>
-                        <segue destination="SmX-GF-qr2" kind="push" identifier="Reconfirm" id="svZ-ze-E7x"/>
+                        <segue destination="xbB-pF-yen" kind="push" identifier="tradeHistory" id="IeS-cQ-kNK"/>
+                        <segue destination="SmX-GF-qr2" kind="push" identifier="location" id="svZ-ze-E7x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vv-Th-SPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431" y="96"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - 재인증-->
         <scene sceneID="MsZ-yj-oiG">
             <objects>
                 <viewController id="SmX-GF-qr2" sceneMemberID="viewController">
@@ -60,15 +60,24 @@
                     <view key="view" contentMode="scaleToFill" id="aAf-1n-tun">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="지도가 나올껄?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12W-pg-ZYy">
+                                <rect key="frame" x="109" y="202" width="103" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87669403700000004" green="0.87669403700000004" blue="0.87669403700000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Epf-an-2UE"/>
+                    <navigationItem key="navigationItem" title="재인증" id="Epf-an-2UE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo3-yn-ugW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="938" y="579"/>
         </scene>
-        <!--Trade History View Controller-->
+        <!--Trade History View Controller - 거래내역-->
         <scene sceneID="mc1-jR-x5u">
             <objects>
                 <viewController id="xbB-pF-yen" customClass="SSTradeHistoryViewController" sceneMemberID="viewController">
@@ -79,9 +88,9 @@
                     <view key="view" contentMode="scaleToFill" id="QhK-bI-OpO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.87669403700000004" green="0.87669403700000004" blue="0.87669403700000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KCC-3S-X09"/>
+                    <navigationItem key="navigationItem" title="거래내역" id="KCC-3S-X09"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCp-Vz-HLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -26,7 +26,7 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)77/256 blue:(CGFloat)87/256 alpha:1]];
     
     //로고 Label
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(67, 117, 175, 60)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(90, 120, 175, 60)];
     [label setText:@"Second Sight"];
     [label setFont:[UIFont systemFontOfSize:23.f]];
     [label setTextColor:[UIColor whiteColor]];

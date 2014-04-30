@@ -12,7 +12,7 @@
 {
     UIImageView *photoView;
     UIView *background;
-    UILabel *nameLabel, *gradeLabel, *dateLabel, *detailLabel;
+    UILabel *gradeLabel, *dateLabel, *detailLabel;
 }
 - (id)initWithFrame:(CGRect)frame
 {
@@ -23,8 +23,8 @@
         [photoView setImage:[UIImage imageNamed:@"defaultPhoto.png"]];
         [photoView setFrame:CGRectMake(20, 20, 100, 100)];
         
-        nameLabel  = [self makeLabel:nameLabel x:20 y:120 width:100 height:30 text:@"정보없음" size:14.f];
-        [nameLabel setTextAlignment:NSTextAlignmentCenter];
+        _nameLabel  = [self makeLabel:_nameLabel x:20 y:120 width:100 height:30 text:@"정보없음" size:14.f];
+        [_nameLabel setTextAlignment:NSTextAlignmentCenter];
         
         gradeLabel = [self makeLabel:gradeLabel x:130 y:20 width:180 height:30 text:@"Warning" size:23.f];
         [gradeLabel setTextAlignment:NSTextAlignmentCenter];
@@ -47,10 +47,7 @@
     }
     return self;
 }
-- (void) setNameLabelValue :(NSString*)name
-{
-    nameLabel.text = name;
-}
+
 - (UILabel*)makeLabel:(UILabel*)label x:(CGFloat)x y:(CGFloat)y
                 width:(CGFloat)width height:(CGFloat)height text:(NSString*)text size:(CGFloat)size
 {

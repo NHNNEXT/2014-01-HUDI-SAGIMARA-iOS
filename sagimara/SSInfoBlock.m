@@ -10,7 +10,6 @@
 
 @implementation SSInfoBlock
 {
-    UIButton *touchButton;
     UILabel *titleLabel;
     UILabel *contentLabel;
     UIImageView *backgroundImage;
@@ -34,14 +33,14 @@
         [contentLabel setTextColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)51/256 blue:(CGFloat)51/256 alpha:1]];
         
         backgroundImage = [[UIImageView alloc]initWithFrame:CGRectMake(30, 15, size.width-60, size.height-10)];
-        touchButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+        _touchButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, size.width, size.height)];
 
         signal = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 10, 10)];
         
         [self addSubview:titleLabel];
         [self addSubview:contentLabel];
         [self addSubview:backgroundImage];
-        [self addSubview:touchButton];
+        [self addSubview:_touchButton];
         [self addSubview:signal];
     }
     return self;
@@ -78,7 +77,7 @@
 
 -(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
-    [touchButton addTarget:target action:action forControlEvents:controlEvents];
+    [_touchButton addTarget:target action:action forControlEvents:controlEvents];
 }
 
 
