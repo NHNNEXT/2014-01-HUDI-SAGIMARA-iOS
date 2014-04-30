@@ -19,7 +19,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Root View" id="6QQ-2U-sn4"/>
                     <connections>
-                        <segue destination="Ept-1O-F2N" kind="push" id="JwT-oK-H2H"/>
+                        <segue destination="Ept-1O-F2N" kind="push" identifier="Search" id="JwT-oK-H2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -29,7 +29,7 @@
         <!--Search View Controller - Search View-->
         <scene sceneID="s1K-qG-egS">
             <objects>
-                <viewController id="Ept-1O-F2N" customClass="SSSearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="Ept-1O-F2N" customClass="SSSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WRU-OX-5cR"/>
                         <viewControllerLayoutGuide type="bottom" id="pIw-5f-l7I"/>
@@ -40,10 +40,52 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search View" id="79u-3k-U8l"/>
+                    <connections>
+                        <segue destination="xbB-pF-yen" kind="push" identifier="History" id="IeS-cQ-kNK"/>
+                        <segue destination="SmX-GF-qr2" kind="push" identifier="Reconfirm" id="svZ-ze-E7x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vv-Th-SPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431" y="96"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MsZ-yj-oiG">
+            <objects>
+                <viewController id="SmX-GF-qr2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Onu-FU-JUN"/>
+                        <viewControllerLayoutGuide type="bottom" id="nP2-76-JgG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aAf-1n-tun">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Epf-an-2UE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oo3-yn-ugW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="579"/>
+        </scene>
+        <!--Trade History View Controller-->
+        <scene sceneID="mc1-jR-x5u">
+            <objects>
+                <viewController id="xbB-pF-yen" customClass="SSTradeHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V1h-cO-Fjs"/>
+                        <viewControllerLayoutGuide type="bottom" id="mFo-YX-oH0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QhK-bI-OpO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KCC-3S-X09"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XCp-Vz-HLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="-174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q0v-D4-9Ld">

@@ -11,6 +11,7 @@
 #import "SSSearchMiddleView.h"
 #import "SSSearchBottomView.h"
 #import "SSDataModel.h"
+#import "SSTradeHistoryViewController.h"
 
 @interface SSSearchViewController ()
 
@@ -51,7 +52,7 @@ enum infoBlock{
     [indicatiorView startAnimating];
     
     //스크롤뷰 생성
-    scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
+    scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 63, viewSize.width, viewSize.height)];
     
     //View생성
     topView = [[SSSearchTopView alloc]initWithFrame:CGRectMake(0, 0, viewSize.width, 160)];
@@ -68,7 +69,8 @@ enum infoBlock{
     [scrollView addSubview:bottomView];
     scrollView.contentSize = CGSizeMake(viewSize.width, topView.frame.size.height + middleView.frame.size.height + bottomView.frame.size.height);
 
-
+    [middleView.reconfirmButton addTarget:self action:@selector(reconfirmButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [middleView.tradeHistoryButton addTarget:self action:@selector(tradeHistoryButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTap:)];
     search = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 64, viewSize.width, 35)];
@@ -156,9 +158,30 @@ enum infoBlock{
         
     }
 }
--(void)waitingForData{
+-(void)waitingForData
+{
     //옵저버 붙이기
     NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
     [notification addObserver:self selector:@selector(stopIndicatiorViewAndUpdateData:) name:@"serverData" object:nil];
 }
+
+-(IBAction)reconfirmButtonClick:(id)sender
+{
+    [self performSegueWithIdentifier:@"Reconfirm" sender:self];
+}
+
+-(IBAction)tradeHistoryButtonClick:(id)sender
+{
+    [self performSegueWithIdentifier:@"History" sender:self];
+
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+//    if ([segue.identifier isEqualToString:@"HistoryViewControllerSegue"]) {
+//            NSLog(@"거래내역 보기");
+//        SSTradeHistoryViewController *th = [segue destinationViewController];
+//    }
+}
+
 @end

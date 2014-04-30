@@ -35,13 +35,8 @@
     _responseData = [NSJSONSerialization
              JSONObjectWithData:data
              options:NSJSONReadingMutableContainers error:nil];
-//    NSString *returnString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    
-//    
-//    NSLog(@"string : %@",returnString);
-    NSLog(@"%@",_responseData);
-    NSString *name = [_responseData objectForKey:@"profile_phone"];
-    NSLog(@"model = %@",name);
+
+//    NSLog(@"%@",_responseData);
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     NSDictionary *dic = [NSDictionary dictionaryWithObject:_responseData forKey:@"jsonData"];

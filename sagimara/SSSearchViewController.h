@@ -11,4 +11,5 @@
 @interface SSSearchViewController : UIViewController
 
 -(void)waitingForData;
+
 @end

@@ -12,6 +12,8 @@
 {
     NSMutableArray *infoBlocks;
 }
+
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -20,19 +22,19 @@
         CGFloat halfWidth = viewSize.width/2;
         
         //중단 버튼 2개 생성 및 설정(reconfirmButton, tradeHistoryButton)
-        UIButton *reconfirmButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, halfWidth, 40)];
-        UIButton *tradeHistoryButton = [[UIButton alloc]initWithFrame:CGRectMake(halfWidth, 0, halfWidth, 40)];
-        [reconfirmButton setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)51/256 blue:(CGFloat)51/256 alpha:1]];
-        [tradeHistoryButton setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)51/256 blue:(CGFloat)51/256 alpha:1]];
-        [reconfirmButton setTitle:@"재인증 요청" forState:UIControlStateNormal];
-        [tradeHistoryButton setTitle:@"거래내역 보기" forState:UIControlStateNormal];
+        _reconfirmButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, halfWidth, 40)];
+        _tradeHistoryButton = [[UIButton alloc]initWithFrame:CGRectMake(halfWidth, 0, halfWidth, 40)];
+        [_reconfirmButton setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)51/256 blue:(CGFloat)51/256 alpha:1]];
+        [_tradeHistoryButton setBackgroundColor:[UIColor colorWithRed:(CGFloat)51/256 green:(CGFloat)51/256 blue:(CGFloat)51/256 alpha:1]];
+        [_reconfirmButton setTitle:@"재인증 요청" forState:UIControlStateNormal];
+        [_tradeHistoryButton setTitle:@"거래내역 보기" forState:UIControlStateNormal];
         
         UIImageView *button_partition = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"btn_partition.png"]];
         [button_partition setFrame:CGRectMake(halfWidth, 0, 1, 40)];
         [button_partition setAlpha: 0.3f];
         
-        [self addSubview:reconfirmButton];
-        [self addSubview:tradeHistoryButton];
+        [self addSubview:_reconfirmButton];
+        [self addSubview:_tradeHistoryButton];
         [self addSubview:button_partition];
         
         //infoBlock 4개 만들기
@@ -67,6 +69,7 @@
 {
     [[infoBlocks objectAtIndex:block] setContentText:value];
     [[infoBlocks objectAtIndex:block] setSignal:sig];
-    
 }
+
+
 @end

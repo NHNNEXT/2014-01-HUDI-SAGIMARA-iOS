@@ -64,25 +64,42 @@
 {
     [searchField resignFirstResponder];
 }
--(void)searchClick:(UITapGestureRecognizer*)rec
+
+-(IBAction)searchClick:(id)sender
 {
+    //Trim
+    NSString* temp = [searchField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    searchField.text = temp;
     
-    //폰넘버 정상 데이터인지 확인 부분 (정상일시 View 전환 :SSSearchViewController)
     if([self isPhonNumber:searchField.text])
     {
+         [self performSegueWithIdentifier:@"Search" sender:self];
+    }else{
+        /*
+         *
+         * 정상적인 폰번호가 아닐때 에러 출력
+         *
+        */
+    }
+    
+}
 
-        SSSearchViewController *searchViewController = [[SSSearchViewController alloc]initWithNibName:@"SSSearchViewController" bundle:nil];
-
-        [searchViewController waitingForData];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Search"]) {
+        SSSearchViewController *sv = [segue destinationViewController];
+        [sv waitingForData];
         [[SSDataModel getDataModel]sendDataToLocalhost:searchField.text];
-        [self.navigationController pushViewController:searchViewController animated:YES];
     }
 }
 
 //폰넘버 체크 (향후 구현)
 -(BOOL)isPhonNumber:(NSString*)text
 {
-    
+    if([text isEqual:@""]){
+        NSLog(@"phonNember is null");
+        return NO;
+    }
     
     return YES;
 }

@@ -37,6 +37,7 @@
 		0266C66C18F68AB400161662 /* SSSearchBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0266C66B18F68AB400161662 /* SSSearchBottomView.m */; };
 		0266C66F18F68BC300161662 /* SSSearchMiddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0266C66E18F68BC300161662 /* SSSearchMiddleView.m */; };
 		02E576C118F5420D00F0BB2A /* SSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E576C018F5420D00F0BB2A /* SSDataModel.m */; };
+		02F0A8051910BDF700F5285A /* SSTradeHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A8041910BDF700F5285A /* SSTradeHistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		0266C66E18F68BC300161662 /* SSSearchMiddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchMiddleView.m; sourceTree = "<group>"; };
 		02E576BF18F5420D00F0BB2A /* SSDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDataModel.h; sourceTree = "<group>"; };
 		02E576C018F5420D00F0BB2A /* SSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDataModel.m; sourceTree = "<group>"; };
+		02F0A8031910BDF700F5285A /* SSTradeHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTradeHistoryViewController.h; sourceTree = "<group>"; };
+		02F0A8041910BDF700F5285A /* SSTradeHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTradeHistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				0255C9FC18F29B340033818D /* SSRootViewController.m */,
 				0255CA2518F3F28E0033818D /* SSSearchViewController.h */,
 				0255CA2618F3F28E0033818D /* SSSearchViewController.m */,
+				02F0A8031910BDF700F5285A /* SSTradeHistoryViewController.h */,
+				02F0A8041910BDF700F5285A /* SSTradeHistoryViewController.m */,
 				02E576C218F5421800F0BB2A /* Model */,
 				0255C9FE18F29B340033818D /* Images.xcassets */,
 				0255C9EA18F29B340033818D /* Supporting Files */,
@@ -344,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F0A8051910BDF700F5285A /* SSTradeHistoryViewController.m in Sources */,
 				0255CA1D18F2F1670033818D /* SSSearchTopView.m in Sources */,
 				02E576C118F5420D00F0BB2A /* SSDataModel.m in Sources */,
 				0255C9F418F29B340033818D /* SSAppDelegate.m in Sources */,
