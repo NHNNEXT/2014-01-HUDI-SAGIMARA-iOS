@@ -87,16 +87,17 @@ enum infoBlock{
 {
     switch (status) {
         case 0:
-            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)223/256 green:(CGFloat)90/256 blue:(CGFloat)73/256 alpha:1]];
-            [topView setGradeLabelValue:@"Danger"];
+            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
+            [topView setGradeLabelValue:@"Safety"];
             break;
         case 1:
-            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)255/256 green:(CGFloat)204/256 blue:(CGFloat)51/256 alpha:1]];
+            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)255/256 green:(CGFloat)150/256 blue:(CGFloat)0/256 alpha:1]];
             [topView setGradeLabelValue:@"Warning"];
             break;
         case 2:
-            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)69/256 green:(CGFloat)178/256 blue:(CGFloat)157/256 alpha:1]];
-            [topView setGradeLabelValue:@"Trust"];
+            
+            [topView setBackgroundColor:[UIColor colorWithRed:(CGFloat)223/256 green:(CGFloat)90/256 blue:(CGFloat)73/256 alpha:1]];
+            [topView setGradeLabelValue:@"Danger"];
             break;
             
         default:
@@ -209,7 +210,8 @@ enum infoBlock{
     newFrame.origin.y -= 35;
     newFrame.size.height += 35;
     scrollView.frame = newFrame;
-    [[SSDataModel getDataModel]sendDataToLocalhost:searchBar.text];
+    [[SSDataModel getDataModel] sendData2:searchBar.text];
+
     [indicatiorView startAnimating];
     [indicatiorView setHidden:NO];
 }
